@@ -3,6 +3,7 @@ import { actionTypes } from "./actiontypes";
 
 export const initialState = {
   data: [],
+  cart: [],
   loading: false,
   error: false,
 };
@@ -26,6 +27,21 @@ export const reducer = (state, action) => {
         ...state,
         loading: false,
         error: true,
+      };
+    case actionTypes.ADD_TO_CART:
+      return {
+        ...state,
+        cart: [...state.cart, action.payload],
+      };
+    case actionTypes.REMOVE_FROM_CART:
+      return {
+        ...state,
+        cart: [
+          ...state.cart.filter(
+            (product) =>
+              product.product.id !== action.payload.product.product.id
+          ),
+        ],
       };
     default:
       return state;

@@ -3,15 +3,15 @@ import { useProducsts } from "../context/ProductProvider";
 import { CiStar } from "react-icons/ci";
 import { actionTypes } from "../states/ProductState/actiontypes";
 
-const MoreDeep = () => {
+const Cart = () => {
   const {
-    state: { data },
+    state: { cart },
     dispatch,
   } = useProducsts();
-  console.log(data);
+  console.log(cart);
   return (
     <div className="grid md:grid-cols-3 gap-4 mx-[10%]">
-      {data?.map((product, index) => (
+      {cart?.map((product, index) => (
         <div
           key={index}
           className="card w-full px-[5%] pb-[3%] bg-base-100 shadow-xl "
@@ -26,21 +26,21 @@ const MoreDeep = () => {
           <div className="card-body">
             <h2 className="text-sm text-left">
               {product.title}
-              <div className="badge text-[10px] flex justify-center">
-                {product.rating.rate} <CiStar className="my-auto" />
-              </div>
+              {/* <div className="badge text-[10px] flex justify-center">
+                  {product.rating.rate} <CiStar className="my-auto" />
+                </div> */}
             </h2>
             <p className="text-[12px] text-justify">{product.description}</p>
             <button
               className="btn btn-primary"
               onClick={() =>
                 dispatch({
-                  type: actionTypes.ADD_TO_CART,
+                  type: actionTypes.REMOVE_FROM_CART,
                   payload: { product },
                 })
               }
             >
-              Add to cart
+              Remove
             </button>
           </div>
         </div>
@@ -49,4 +49,4 @@ const MoreDeep = () => {
   );
 };
 
-export default MoreDeep;
+export default Cart;

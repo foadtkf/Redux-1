@@ -4,6 +4,7 @@ import { createContext, useEffect, useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import routes from "./routes";
 import ProductProvider from "./context/ProductProvider";
+import Navbar from "./Components/Navbar";
 // export const Daddycontext = createContext();
 function App() {
   // const [val, setVal] = useState(0);
@@ -14,6 +15,7 @@ function App() {
     // <ProductContext products={products}>
     <ProductProvider>
       <div className="App">
+        <Navbar />
         <img src={logo} className="App-logo mx-auto" alt="logo" />
         <Routes>
           {routes.map((route, idx) => {
