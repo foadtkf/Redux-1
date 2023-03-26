@@ -36,7 +36,7 @@ const Cart = () => {
               onClick={() =>
                 dispatch({
                   type: actionTypes.REMOVE_FROM_CART,
-                  payload: { product },
+                  payload: product,
                 })
               }
             >

@@ -16,7 +16,7 @@ function App() {
     <ProductProvider>
       <div className="App">
         <Navbar />
-        <img src={logo} className="App-logo mx-auto" alt="logo" />
+        {/* <img src={logo} className="App-logo mx-auto" alt="logo" /> */}
         <Routes>
           {routes.map((route, idx) => {
             return (

@@ -34,13 +34,11 @@ export const reducer = (state, action) => {
         cart: [...state.cart, action.payload],
       };
     case actionTypes.REMOVE_FROM_CART:
+      // console.log(state, action.payload);
       return {
         ...state,
         cart: [
-          ...state.cart.filter(
-            (product) =>
-              product.product.id !== action.payload.product.product.id
-          ),
+          ...state.cart.filter((product) => product.id !== action.payload.id),
         ],
       };
     default:

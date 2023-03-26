@@ -23,20 +23,22 @@ const MoreDeep = () => {
               alt="Shoes"
             />
           </div>
-          <div className="card-body">
+          <div className="">
             <h2 className="text-sm text-left">
               {product.title}
               <div className="badge text-[10px] flex justify-center">
                 {product.rating.rate} <CiStar className="my-auto" />
               </div>
             </h2>
-            <p className="text-[12px] text-justify">{product.description}</p>
+            <p className="text-[12px] text-justify">
+              {product.description.slice(0, 200)}
+            </p>
             <button
               className="btn btn-primary"
               onClick={() =>
                 dispatch({
                   type: actionTypes.ADD_TO_CART,
-                  payload: { product },
+                  payload: product,
                 })
               }
             >
